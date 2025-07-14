@@ -98,10 +98,10 @@ Copy the **ngrok HTTPS URL**.
 
 | **Original**       | **Rephrased Suggestion**                     |
 |-------------------|----------------------------------------------|
-| "Fix this"         | "Could you take a look at this when you get a chance?" |
+| "Fix this"         | " Could you make few adjustments in this ?" |
 | "Do it now"        | "Please prioritize this task."               |
-| "You must"         | "It would be necessary to..."                |
-| "This is wrong"    | "This might need adjustment."                |
+| "Any update?"      | " Just checking in, do you have any updates?"                |
+| "I disagree"       | " I see it differently"                |
 | "Why didn’t you"   | "Could you share more context?"              |
 
 ---
