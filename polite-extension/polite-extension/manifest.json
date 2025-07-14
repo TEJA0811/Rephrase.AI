@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Polite Slack Rephraser",
+  "description": "Suggests polite messages in Slack while typing.",
+  "version": "1.0",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://app.slack.com/*",
+    "https://8bae-2a02-3100-2914-300-2cbd-cd95-c743-152c.ngrok-free.app/*",
+    "https://2ef9-87-157-208-179.ngrok-free.app/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.slack.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
