@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rephrase Message</title>
+    <style>
+      textarea {
+        width: 80%;
+        height: 100px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rephrase Chat</h1>
+    <textarea id="message" placeholder="Type your message here..."></textarea
+    ><br />
+    <button id="send">Send</button>
+
+    <script>
+      const textarea = document.getElementById("message");
+      const sendButton = document.getElementById("send");
+
+      textarea.addEventListener("keydown", async (e) => {
+        if (e.key === "Tab") {
+          e.preventDefault();
+          const original = textarea.value;
+          const res = await fetch("http://localhost:5000/rephrase", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: original }),
+          });
+          const data = await res.json();
+          textarea.value = data.rephrased;
+        }
+      });
+
+      sendButton.addEventListener("click", async () => {
+        const msg = textarea.value;
+        const res = await fetch("http://localhost:3000/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg }),
+        });
+        const data = await res.json();
+        alert(`Message sent: ${data.message}`);
+        textarea.value = "";
+      });
+    </script>
+  </body>
+</html>
